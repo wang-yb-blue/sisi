@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能单车商城 - 产品展示</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">🚲 智能单车商城</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="products.html" class="active">产品展示</a></li>
+                    <li><a href="cart.html">购物车</a></li>
+                    <li><a href="orders.html">我的订单</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products-section">
+            <h1>所有产品</h1>
+            <div class="filter-bar">
+                <select id="category-filter">
+                    <option value="">所有分类</option>
+                    <option value="city">城市通勤</option>
+                    <option value="mountain">山地越野</option>
+                    <option value="electric">电动助力</option>
+                </select>
+                <select id="price-filter">
+                    <option value="">价格排序</option>
+                    <option value="asc">价格从低到高</option>
+                    <option value="desc">价格从高到低</option>
+                </select>
+            </div>
+            
+            <div id="products-container" class="products-grid">
+                <!-- 产品列表将通过JavaScript动态加载 -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 智能单车商城. 保留所有权利.</p>
+    </footer>
+
+    <!-- 使用更稳定的Supabase CDN链接 -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.38.0/dist/umd/supabase.min.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

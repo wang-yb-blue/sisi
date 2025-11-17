@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能单车商城 - 我的订单</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">🚲 智能单车商城</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="products.html">产品展示</a></li>
+                    <li><a href="cart.html">购物车</a></li>
+                    <li><a href="orders.html" class="active">我的订单</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="orders-section">
+            <h1>我的订单</h1>
+            
+            <div id="orders-list">
+                <!-- 订单列表将通过JavaScript动态加载 -->
+                <div class="empty-orders" id="empty-orders">
+                    <p>暂无订单</p>
+                    <a href="products.html" class="cta-button">去选购商品</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 智能单车商城. 保留所有权利.</p>
+    </footer>
+
+    <!-- 使用更稳定的Supabase CDN链接 -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.38.0/dist/umd/supabase.min.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

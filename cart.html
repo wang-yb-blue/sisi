@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能单车商城 - 购物车</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">🚲 智能单车商城</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="products.html">产品展示</a></li>
+                    <li><a href="cart.html" class="active">购物车</a></li>
+                    <li><a href="orders.html">我的订单</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart-section">
+            <h1>购物车</h1>
+            
+            <div id="cart-items">
+                <!-- 购物车商品将通过JavaScript动态加载 -->
+                <div class="empty-cart" id="empty-cart">
+                    <p>购物车为空</p>
+                    <a href="products.html" class="cta-button">去选购商品</a>
+                </div>
+            </div>
+
+            <div class="cart-summary" id="cart-summary" style="display: none;">
+                <div class="summary-item">
+                    <span>商品总价:</span>
+                    <span id="total-price">¥0</span>
+                </div>
+                <div class="summary-item">
+                    <span>运费:</span>
+                    <span>¥0</span>
+                </div>
+                <div class="summary-item total">
+                    <span>总计:</span>
+                    <span id="final-price">¥0</span>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">立即结算</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 智能单车商城. 保留所有权利.</p>
+    </footer>
+
+    <!-- 使用更稳定的Supabase CDN链接 -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.38.0/dist/umd/supabase.min.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

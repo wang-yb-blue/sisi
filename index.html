@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能单车商城 - 首页</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">🚲 智能单车商城</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="products.html">产品展示</a></li>
+                    <li><a href="cart.html">购物车</a></li>
+                    <li><a href="orders.html">我的订单</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>智能骑行，畅享生活</h2>
+                <p>探索最新款的智能单车，体验科技带来的骑行乐趣</p>
+                <a href="products.html" class="cta-button">立即选购</a>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <h2>热门产品</h2>
+            <div id="featured-products" class="products-grid">
+                <!-- 产品将通过JavaScript动态加载 -->
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>我们的优势</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>🔋 智能电池</h3>
+                    <p>超长续航，智能电量管理</p>
+                </div>
+                <div class="feature-item">
+                    <h3>📱 手机互联</h3>
+                    <p>通过App控制，实时数据追踪</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🔒 智能防盗</h3>
+                    <p>GPS定位，远程锁定功能</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 智能单车商城. 保留所有权利.</p>
+    </footer>
+
+    <!-- 使用更稳定的Supabase CDN链接 -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.38.0/dist/umd/supabase.min.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
