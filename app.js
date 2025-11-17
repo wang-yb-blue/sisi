@@ -69,6 +69,17 @@ let orders = JSON.parse(localStorage.getItem('orders')) || [];
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('页面开始初始化...');
     
+    // 确保页面完全加载后再执行
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initApp);
+    } else {
+        initApp();
+    }
+});
+
+async function initApp() {
+    console.log('开始初始化应用...');
+    
     // 等待Supabase库加载完成
     if (typeof window.supabase === 'undefined') {
         console.error('Supabase库未加载，请检查CDN链接');
@@ -89,8 +100,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         products = fallbackProducts;
     }
     
-    initPages();
-});
+    // 确保DOM元素已经存在后再初始化页面
+    setTimeout(() => {
+        initPages();
+        console.log('页面初始化完成，产品数量:', products.length);
+    }, 100);
+}
 
 function initPages() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
