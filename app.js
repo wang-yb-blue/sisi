@@ -69,47 +69,25 @@ let orders = JSON.parse(localStorage.getItem('orders')) || [];
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('页面开始初始化...');
     
+    // 直接使用硬编码的数据库数据，跳过Supabase连接
+    console.log('使用硬编码数据库数据...');
+    products = fallbackProducts;
+    
     // 确保页面完全加载后再执行
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initApp);
+        document.addEventListener('DOMContentLoaded', function() {
+            initPages();
+            console.log('页面初始化完成，产品数量:', products.length);
+            showNotification(`✅ 已加载 ${products.length} 个产品`);
+        });
     } else {
-        initApp();
-    }
-});
-
-async function initApp() {
-    console.log('开始初始化应用...');
-    
-    // 等待Supabase库加载完成
-    if (typeof window.supabase === 'undefined') {
-        console.error('Supabase库未加载，请检查CDN链接');
-        products = fallbackProducts;
-        // 直接使用备用数据初始化页面
         setTimeout(() => {
             initPages();
-            console.log('使用备用数据初始化完成，产品数量:', products.length);
+            console.log('页面初始化完成，产品数量:', products.length);
+            showNotification(`✅ 已加载 ${products.length} 个产品`);
         }, 100);
-        return;
     }
-    
-    // 初始化 Supabase 连接
-    const supabaseConnected = initSupabase();
-    
-    // 根据Supabase连接状态加载数据
-    if (supabaseConnected) {
-        console.log('尝试从Supabase加载数据...');
-        await loadProductsFromSupabase();
-    } else {
-        console.warn('Supabase连接失败，使用备用数据');
-        products = fallbackProducts;
-    }
-    
-    // 确保DOM元素已经存在后再初始化页面
-    setTimeout(() => {
-        initPages();
-        console.log('页面初始化完成，产品数量:', products.length);
-    }, 100);
-}
+});
 
 function initPages() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
