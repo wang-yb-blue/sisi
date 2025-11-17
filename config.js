@@ -22,20 +22,14 @@ function loadSupabaseConfig() {
     // 在开发环境中，我们可以使用 .env 文件或默认值
     
     // 尝试从环境变量获取（Netlify部署时）
-    SUPABASE_URL = window.ENV_SUPABASE_URL || SUPABASE_CONFIG.productionUrl;
-    SUPABASE_ANON_KEY = window.ENV_SUPABASE_ANON_KEY || SUPABASE_CONFIG.productionKey;
-    
-    // 检查是否是生产环境配置
-    const isProductionConfig = 
-        SUPABASE_URL === SUPABASE_CONFIG.productionUrl && 
-        SUPABASE_ANON_KEY === SUPABASE_CONFIG.productionKey;
+    SUPABASE_URL = "https://qbdadltuqpdfbacbvvdu.supabase.co";
+    SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFiZGFkbHR1cXBkZmJhY2J2dmR1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1MTM2MDAsImV4cCI6MjA3NzA4OTYwMH0.OXXWyhvxPxHoAuscCQcUYpjMLwjvtNQo-WboVvGSAf8";
     
     console.log('Supabase配置加载:');
-    console.log('URL:', SUPABASE_URL.substring(0, 30) + '...');
+    console.log('URL:', SUPABASE_URL);
     console.log('Key长度:', SUPABASE_ANON_KEY.length);
-    console.log('环境:', isProductionConfig ? '生产环境' : '开发环境');
     
-    return isProductionConfig;
+    return true;
 }
 
 // 初始化 Supabase 连接

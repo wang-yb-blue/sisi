@@ -84,7 +84,11 @@ async function initApp() {
     if (typeof window.supabase === 'undefined') {
         console.error('Supabase库未加载，请检查CDN链接');
         products = fallbackProducts;
-        initPages();
+        // 直接使用备用数据初始化页面
+        setTimeout(() => {
+            initPages();
+            console.log('使用备用数据初始化完成，产品数量:', products.length);
+        }, 100);
         return;
     }
     
